@@ -1,0 +1,30 @@
+<nav class="navbar nav-land navbar-expand-sm">
+  <a class="navbar-brand  link-item" href="#">Navbar</a>
+    <ul class="nav navbar-nav mr-auto">
+      <li class="nav-item">
+        <%= link_to 'Home', '/', class:"nav-link link-item"%>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'New Listing', home_infor_path, class:"nav-link link-item" %>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav ml-auto">
+      <% if signed_in? %>  
+        <li class="nav-item dropdown link-item">
+          <a class="nav-link  link-item dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            My Account
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to 'Edit Profile', edit_user_registration_path, class:"dropdown-item" %>
+            <div class="dropdown-divider"></div>
+            <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class:"dropdown-item" %>
+          </div>
+        </li>
+        <% else %>
+        <li class="nav-item">
+          <%= link_to 'SIGN UP', new_user_registration_path , class:"nav-link link-item" %>
+        </li>
+      <% end %>
+    </ul>
+  
+</nav>

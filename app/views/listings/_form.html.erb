@@ -1,0 +1,62 @@
+<%= form_with(model: listing, local: true) do |form| %>
+<div class="container">
+  <% if listing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
+
+      <ul>
+        <% listing.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <form>
+    <div class="form-group">
+      <label for="exampleInputName" class="bmd-label-floating">Name</label>
+      <%= form.text_field :Name , class:"form-control" %>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1" class="bmd-label-floating">Price</label>
+      <%= form.number_field :Price, class:"form-control" %>
+    </div>
+    <div class="form-group">
+      <label for="exampleTextarea" class="bmd-label-floating">Description</label>
+      <%= form.text_area :Description ,  class:"form-control", rows:"3"%>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1" class="bmd-label-floating">Are there any parking spaces?</label>
+      <%= form.number_field :parking, class:"form-control" %>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1" class="bmd-label-floating">How many rooms are available?</label>
+      <%= form.number_field :Rooms , class:"form-control"%>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1" class="bmd-label-floating">How many bathrooms are available?</label>
+      <%= form.number_field :bathrooms, class:"form-control" %>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1" class="bmd-label-floating">Town</label>
+      <%= form.text_field :Town, class:"form-control" %>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1" class="bmd-label-floating">Estate *without the word Estate</label>
+      <%= form.text_field :Estate, class:"form-control" %>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputFile" class="bmd-label-floating">Photo</label>
+      <%= form.file_field :photo, class:"form-control-file" %>
+      <small class="text-muted">Upload your best photo.</small>
+    </div>
+    <div class="form-group">
+      <label class="bmd-label-floating">Provide your phone number for customers to reach you easily.</label>
+      <%= form.number_field :contacts, class:"form-control" %>
+    </div>
+    <button class="btn btn-default">Cancel</button>
+    <%= form.submit "submit", class:"btn btn-primary btn-raised"%>
+  </form>
+</div>
+
+
+<% end %>

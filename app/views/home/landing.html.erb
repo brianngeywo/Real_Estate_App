@@ -1,0 +1,36 @@
+<div class="landing-page">
+  <%= render 'layouts/home_nav' %>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="jumbotron" style="background-color:transparent;">
+                    <h1 class="display-4">Welcome to Africa's Home of Real Estate</h1>
+                    <hr class="my-4">
+                    <p class="lead">
+                        <h4>Find Affordable Rentals Near You</h4>
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                 <div class="container" style="margin-top:80px;margin-bottom:80px;">
+                    <%= form_for(:user, as: :user, url: session_path(:user)) do |f| %>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", id:"exampleInputEmail1", placeholder:"Enter email" %>
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <%= f.password_field :password, autocomplete: "current-password", class:"form-control", id:"exampleInputPassword1", placeholder:"Password" %>
+                        </div>
+                        <div class="form-check">
+                                <%= f.check_box :remember_me ,  class:"form-check-input", id:"exampleCheck1" %>
+                                <%= f.label :remember_me , class:"form-check-label" %>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    <% end %>                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

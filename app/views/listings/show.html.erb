@@ -1,0 +1,103 @@
+<%= render 'layouts/listing_nav' %>
+<br>
+<div class="container">
+ <h1 style="text-transform:capitalize;font-weight:bolder;"><%= @listing.Name %> in <%= @listing.Town %> , <%= @listing.Estate %></h1>
+  <div class="row">
+    <div class="col-md-8 col-sm-8">
+        <div style="width: 100%;height:150px;padding:10px;">
+            <%= image_tag @listing.photo , class:"card-img-top" %>
+            <h5 style="text-decoration-color: #057495;font-weight:bolder;padding:10px;">KES <%= @listing.Price %>/=</h5>
+            <h5 style="text-decoration-color: #057495;font-weight:lighter;padding:10px;"><%= @listing.Name %>, <%= @listing.Town %>, <%= @listing.Estate %></h5>
+            <ul class="list-inline">
+              <li class="list-inline-item"><i class="fa fa-bed"><%= @listing.Rooms %></i></li>
+              <li class="list-inline-item"><i class="fa fa-bath"><%= @listing.bathrooms %></i></li>
+              <li class="list-inline-item"><i class="fa fa-car"><%= @listing.parking %></i></li>
+            </ul>
+              
+            <hr>
+            <h3 style="text-transform:capitalize;font-weight:bolder;padding:10px;">Rental description</h3>
+            <p style="font-size: large;padding:10px;">Inspired by the fascinating achievements of human history, reimagined for the 21st century.<br>
+
+              Babylon - Part One of Denvell Group's Ancient Cities Collection<br>
+
+              /Designed by award-winning architects Rothelowman and landscape architects Turf Design<br>
+              /Enter Babylon's grand gates and be drawn through natural stone pathways and reach a private oasis of interconnected lush gardens lined with fruit trees and water features
+              /Three central communal gardens and one communal rooftop garden with private dining and BBQ<br>
+              /Kitchen appliances featuring Miele and Fisher Paykel<br>
+
+              / Short Stroll to Rouse Hill Station, Bus Interchange and Tallawong Station<br>
+              / Minutes away from Rouse Hill Town Centre, exceptional education, world-class business parks and entertainment.<br>
+              /Sydney's new centre of gravity<br>
+
+              Imagine if the ancient city of Babylon had thrived since 300BC. Our creative vision is a modern-day interpretation of what this sanctuary might look and feel like today. Somewhere awash with iridescent greenery and natural light. Babylon is a landmark development bringing international design excellence and build quality to Australia
+
+              Sales Gallery opening soon | Book your appointment now.<br>
+              Sales Gallery located at Shop 6, 409 Victoria Ave, Chatswood NSW 2067 (The Concourse).</p>
+            <hr>
+            <h2 style="text-transform:capitalize;font-weight:bolder;padding:10px;">recently added rentals and properties</h2>
+            <br>
+                  <% @listings.each do |listing| %>
+                    <div class="card flex-sm-row mb-4 box-shadow h-md-250">
+                      <%= image_tag listing.photo , class:"card-img-left flex-auto d-none d-md-block card-image", alt:"listing image"%>
+                      <div class="card-body d-flex flex-column align-items-start">
+                        <p><strong>KES <%= listing.Price %> per month</strong></p>
+                          <p><%= listing.Name %> in <%= listing.Town %>,</p>
+                          <p><%= listing.Estate %></p>
+                          <div class="container">
+                            <br>
+                              <ul class="list-inline">
+                                  <li class="list-inline-item"><span class="badge" style="margin-right:10px;"><i class="fa fa-bed fa-2x" style="margin-right:10px;"></i><%= listing.Rooms %></span></li>
+                                  <li class="list-inline-item"><span class="badge" style="margin-right:10px;"><i class="fa fa-bathtub fa-2x" style="margin-right:10px;"></i><%= listing.bathrooms %></span></li>
+                                  <li class="list-inline-item"><span class="badge" style="margin-right:10px;"><i class="fa fa-car fa-2x" style="margin-right:10px;"></i><%= listing.parking %></span></li>
+                              </ul>
+                              <p><%= link_to 'See more about this property...', listing %></p>
+                          </div>
+                      </div>
+                    </div>
+                    <br>
+                  <% end %>
+              <%# <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                image_tag 'forest.jpg' , class:"card-img-right flex-auto d-none d-md-block", alt:"Card image cap"
+                <div class="card-body d-flex flex-column align-items-start">
+                  <strong class="d-inline-block mb-2 text-primary">World</strong>
+                  <h3 class="mb-0">
+                    <a class="text-dark" href="#">Featured post</a>
+                  </h3>
+                  <div class="mb-1 text-muted">Nov 12</div>
+                  <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                  <a href="#">Continue reading</a>
+                </div>
+              </div> %>
+        </div>
+      <br>
+    </div>
+    <div class="col-md-4 col-sm-4">
+      <div class="card" style="width: 100%;padding:10px;">
+        <div class=container>
+          <h5 style="font-weight:bolder;text-transform:capitalise">Phone the Owner</h5>
+          <h6><%= @listing.Name %> | <%= @listing.Town %></h6>
+          <i class="fa fa-envelope"></i> <%= @listing.user.email %><br>
+          <i class="fa fa-phone"></i> 254<%= @listing.contacts %>
+        <br>          
+          <%= link_to 'Edit', edit_listing_path(@listing) %>
+          <%= link_to 'Destroy', @listing, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      </div>
+      <br>
+      <hr>
+      <br>
+      <div class="jumbotron">
+        <h1 class="display-4">Hello?</h1>
+        <p class="lead">We are working our best to provide the best services, if you have any issue, call us using the link below.</p>
+        <hr class="my-4">
+        <p>We also provide advertisement services, call us to know more.</p>
+        <p class="lead">
+          <i class="fa fa-phone" style="text-transform:capitalize;" href=""> +254798767470</i>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

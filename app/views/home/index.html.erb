@@ -1,0 +1,52 @@
+<%= render 'layouts/listing_nav' %>
+<div class="jumbotron carou-1">
+    <div class="s002">
+      <form>
+        <%= search_form_for @q do |f| %>
+          <div class="inner-form">
+            <div class="input-field first-wrap">
+              <div class="icon-wrap">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path>
+                </svg>
+              </div>
+              <%= f.search_field :Name_or_Town_or_Estate_cont , id:"search", placeholder:"What are you looking for?"%>
+            </div>
+            <div class="input-field fifth-wrap">
+              <%= f.submit "SEARCH", class:"btn-search" %>
+            </div>
+          </div>
+        <% end %>
+      </form>
+    </div>
+</div>
+<br>
+<div class="container">
+        <div class="intro">
+            <h2 class="text-center"><span style="text-transform: uppercase;">Latest Rentals</span></h2>
+        </div><br>
+    <div class="row">
+    <br>
+    
+      <% @listings.each do |listing| %>
+        <div class="col-md-4 col-sm-6">         
+            <div class="card" style="margin-bottom: 5px;">
+                <%= image_tag listing.photo, class:"card-image"  %>
+                  <div class="container">
+                    <br>
+                      <p><strong>KES <%= listing.Price %> per month</strong></p>
+                      <p><strong><%= listing.Name %> in <%= listing.Town %>, <%= listing.Estate %></strong></p>
+                      <ul class="list-inline">
+                          <li class="list-inline-item"><span class="badge" style="margin-right:10px;"><i class="fa fa-bed" style="margin-right:10px;"></i><%= listing.Rooms %></span></li>
+                          <li class="list-inline-item"><span class="badge" style="margin-right:10px;"><i class="fa fa-bathtub" style="margin-right:10px;"></i><%= listing.bathrooms %></span></li>
+                          <li class="list-inline-item"><span class="badge" style="margin-right:10px;"><i class="fa fa-car" style="margin-right:10px;"></i><%= listing.parking %></span></li>
+                      </ul>
+                      <p><%= link_to 'Get more infor...', listing %></p>
+                  </div>
+            </div>
+        </div>
+        <br>
+      <% end %>
+        <br>
+    </div>
+</div>

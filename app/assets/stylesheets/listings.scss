@@ -1,0 +1,22 @@
+// Place all the styles related to the listings controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.card-image {
+    height: 200px;
+    max-height: fit-content;
+
+}
+.nav-land {
+    background-color: #057495;
+}
+.link-item {
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.body {
+    background-color: rgba(177, 182, 195, 0.329);
+}
+.nav-link {
+    font-weight: bolder;
+}
